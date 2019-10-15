@@ -24,19 +24,10 @@
 /* Menubalk */
 
 
-/*
-h1 {
-    font-family: sans-serif;
-    padding: 1em;
-    color: rgba(255, 255, 255, 255);
-    background-color: #50b266;
-}
-*/
-
 nav {
     width: 100%;
     background-color: #fff;
-    box-shadow: 0 0px 14px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.9px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 header nav li a {
@@ -68,9 +59,18 @@ nav ul {
 
 /* main */
 
-main h2 {
+main {
+   background-color: #F4E6D8;
+}
+
+main h1 {
     padding: 1em;
     text-align: center;
+    
+}
+
+main h2 {
+    padding: 1em 1em;
 }
 
 /* gridje */
@@ -92,8 +92,8 @@ main h2 {
         max-width: 100%;
     }
     main h2 {
-    text-align: center;
-}
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 600px) {
@@ -101,6 +101,7 @@ main h2 {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
 
 /* artikelen */
 
@@ -110,6 +111,7 @@ article {
     text-align: center;
     box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.2);
     border-radius: 0.75em;
+    background-color: #F9F8F8;
 }
 
 
@@ -119,14 +121,13 @@ article img {
     width: 100%;
     margin-bottom: 0.5em;
     border-radius: 0.75em 0.75em 0 0;
-    
 }
 
 
 /* inhoud artikelen */
 
-article h3 {
-    font-size: 25px;
+article h2 {
+    font-size: 1.5em;
     font-weight: 700;
     margin-bottom: 1em;
 }
@@ -146,4 +147,29 @@ button {
     padding: 0.5em;
     border-radius: 0.3em;
     text-decoration: none;
+}
+
+
+/* Login form */
+
+main form {
+    margin: 1em;
+    max-width: 30em;
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+}
+
+main label {
+    display: block;
+    padding: 0.5em;
+}
+
+main form input:invalid {
+    background: #FF0000;
+    transition: 1s;
+}
+
+main form input:valid {
+    background: #00D66C;
+    transition: 1s;
 }
