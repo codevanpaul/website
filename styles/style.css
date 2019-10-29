@@ -23,11 +23,13 @@
 
 /* Menubalk */
 
-
 nav {
     width: 100%;
     background-color: #fff;
-    box-shadow: 0 0.9px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+    margin: auto;
+    font-size: 1.1em;
 }
 
 header nav li a {
@@ -39,17 +41,26 @@ header nav li a {
 header form {
     bottom: 0;
     padding: 1em;
+    font-size: inherit;
+    font-family: inherit;
+    width: 100%;
+}
+
+header form input {
+    width: 0;
+    opacity: 0;
+    transition: all 1s;
+}
+
+header form input.visible {
+    width: 100%;
+    opacity: 1;
 }
 
 li {
     list-style: none;
     padding: 1em;
     white-space: nowrap;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
 }
 
 nav ul {
@@ -60,46 +71,22 @@ nav ul {
 /* main */
 
 main {
-   background-color: #F4E6D8;
+    background-color: #F4E6D8;
 }
 
 main h1 {
     padding: 1em;
     text-align: center;
-    
 }
 
-main h2 {
-    padding: 1em 1em;
-}
 
 /* gridje */
 
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-}
-
-
-/* Media Queries */
-
-@media screen and (max-width: 46.5625em) {
-    .grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    article {
-        max-width: 100%;
-    }
-    main h2 {
-        text-align: center;
-    }
-}
-
-@media screen and (max-width: 75em) and (min-width: 37.5em) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    max-width: 90%;
+    margin: auto;
 }
 
 
@@ -107,11 +94,13 @@ main h2 {
 
 article {
     margin: 1em;
-    max-width: 30em;
     text-align: center;
     box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.2);
     border-radius: 0.75em;
     background-color: #F9F8F8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -127,9 +116,9 @@ article img {
 /* inhoud artikelen */
 
 article h2 {
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: 700;
-    margin-bottom: 1em;
+    padding: 0.5em;
 }
 
 article p {
@@ -142,11 +131,22 @@ article footer p {
     text-align: center;
 }
 
-button {
+article button {
     margin: 1em;
     padding: 0.5em;
     border-radius: 0.3em;
     text-decoration: none;
+    font-size: 0.8em;
+    background-color: #4CAF50;
+    color: #fff;
+    text-align: center;
+}
+
+
+/* zorgt ervoor dat alle ruimte wordt gebruikt */
+
+.details {
+    flex: 1;
 }
 
 
@@ -165,11 +165,41 @@ main label {
 }
 
 main form input:invalid {
-    background: #FF0000;
+    border: 2px solid red;
+    border-radius: 2px;
     transition: 1s;
 }
 
 main form input:valid {
     background: #00D66C;
     transition: 1s;
+}
+
+
+/* Media Queries */
+
+@media screen and (max-width: 45em) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    article {
+        max-width: 100%;
+        align-items: unset;
+    }
+    main h2 {
+        text-align: center;
+    }
+    nav {
+        display: block;
+    }
+    header form {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 75em) and (min-width: 45em) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
