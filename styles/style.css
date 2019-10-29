@@ -1,3 +1,5 @@
+/* Lettertype */
+
 @font-face {
     font-family: "nexalight";
     src: url(../font/nexalight.otf);
@@ -8,6 +10,8 @@
     src: url(../font/nexabold.otf);
 }
 
+/* css standaardwaarden */
+
 *,
 *:before,
 *:after {
@@ -15,6 +19,8 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Wanneer het font niet ingeladen kan worden gebruik deze systeem lettertypes */
 
 * {
     font-family: Open Sans, -apple-system, system-ui, sans-serif;
@@ -46,6 +52,14 @@ header form {
     width: 100%;
 }
 
+header form button {
+    padding: 0.3em;
+    font-family: inherit;
+    text-align: left;
+    background-color: #4CAF50;
+    text-decoration: #FFFFFF;
+}
+
 header form input {
     width: 0;
     opacity: 0;
@@ -55,6 +69,7 @@ header form input {
 header form input.visible {
     width: 100%;
     opacity: 1;
+    white-space: nowrap;
 }
 
 li {
@@ -178,7 +193,7 @@ main form input:valid {
 
 /* Media Queries */
 
-@media screen and (max-width: 45em) {
+@media screen and (max-width: 40em) {
     .grid {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -198,7 +213,7 @@ main form input:valid {
     }
 }
 
-@media screen and (max-width: 75em) and (min-width: 45em) {
+@media screen and (max-width: 75em) and (min-width: 40em) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
     }
