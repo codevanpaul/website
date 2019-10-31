@@ -20,6 +20,11 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Wanneer het font niet ingeladen kan worden gebruik deze systeem lettertypes */
 
 * {
@@ -36,6 +41,7 @@ nav {
     max-width: 100%;
     margin: auto;
     font-size: 1.1em;
+    display: flex;
 }
 
 header nav li a {
@@ -53,23 +59,42 @@ header form {
 }
 
 header form button {
-    padding: 0.3em;
+    padding: 1em;
+    border-radius: 2em;
     font-family: inherit;
-    text-align: left;
     background-color: #4CAF50;
     text-decoration: #FFFFFF;
+    float: right;
 }
 
 header form input {
-    width: 0;
+    width: 100%;
     opacity: 0;
-    transition: all 1s;
+    transition: all 0.5s;
+    transition-timing-function: ease-in-out;
+    border: none;
+    border-bottom: 2px solid grey;
+    pointer-events: none;        /* Dit zorgt ervoor dat het zoekveld nog niet klikbaar is */
+    
 }
 
 header form input.visible {
     width: 100%;
     opacity: 1;
     white-space: nowrap;
+    margin-top: 0.1em;
+    padding: 0.5em 1em 0.5em 1em;
+    font-family: inherit;
+    font-size: 1.3em;
+    color: #4CAF50;
+    border: none;
+    border-bottom: 0.1em solid #4CAF50;
+    pointer-events: all;
+}
+
+header form input:focus {
+    border: none;
+    border-bottom: 1px #4CAF50;
 }
 
 li {
@@ -87,6 +112,7 @@ nav ul {
 
 main {
     background-color: #F4E6D8;
+    padding: 1em;
 }
 
 main h1 {
@@ -115,7 +141,6 @@ article {
     background-color: #F9F8F8;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 
@@ -146,7 +171,7 @@ article footer p {
     text-align: center;
 }
 
-article button {
+article a {
     margin: 1em;
     padding: 0.5em;
     border-radius: 0.3em;
@@ -190,6 +215,17 @@ main form input:valid {
     transition: 1s;
 }
 
+/* Detailpagina */
+
+.reisdetail {
+    max-width: 48em;
+    margin: 0 auto;
+}
+
+.reisdetail h2 {
+    margin: 1em;
+}
+
 
 /* Media Queries */
 
@@ -207,10 +243,6 @@ main form input:valid {
     nav {
         display: block;
     }
-    header form {
-        display: flex;
-        justify-content: center;
-    }
 }
 
 @media screen and (max-width: 75em) and (min-width: 40em) {
@@ -218,3 +250,13 @@ main form input:valid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* Credits: 
+
+- Jari Zwarts voor uitleg over Javascript en Semantische tips
+- Jan Willem Nes voor het helpen met de styling voor van het zoekveld
+- Steven Whitton
+- Patrick van der Veldt
+- W3Schools Forms uitleg (https://www.w3schools.com/css/css_form.asp)
+- Mozilla MDN
+*/
